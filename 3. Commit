@@ -1,0 +1,279 @@
+//SmintonS App(경산.ver)
+//주변 배드민턴 체육관 볼 수 있는 기능
+// //그 체육관에 어떤 클럽이 몇시에 운영하는지, 실력, 나이대, 성비, 실력위주or친목위주, 레슨 등 정보가 적혀있음
+//배드민턴 문화의 정보
+
+#include<iostream>
+#include<string>
+#include <fstream>
+#include<windows.h>
+using namespace std;
+class  Information {
+private:
+	string Creator;
+public:
+	Information() {
+		Creator = "JeongHun Kang";
+	}
+	static void 경산() {
+		cout << "경산에는 총 4개의 배드민턴 체육관이 있습니다" << endl;
+		cout << "동원배드민턴 센터 : 20, 30대 배드민턴 소모임" << endl;
+		cout << "레슨 가능, 코치 이름 : 고세동(S)" << endl;
+		Sleep(1000);
+	}
+	static void 창원() {
+		cout << "창원에는 총 " << "1"/*여기에 체육관 숫자 넣기*/ << "개의 배드민턴 체육관이 있습니다" << endl;
+		Sleep(1000);
+	}
+	static void 배드민턴_게임룰() {
+		string line;
+		ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Rule.txt");
+		getline(BadmintonInfoCorrection_1, line);
+		cout << line << endl;
+		BadmintonInfoCorrection_1.close();
+		Sleep(1000);
+	}
+	static void 동호회_가입하는_방법() {
+		string line;
+		ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Club.txt");
+		getline(BadmintonInfoCorrection_1, line);
+		cout << line << endl;
+		BadmintonInfoCorrection_1.close();
+		Sleep(1000);
+	}
+	static void 동호인으로서_알았으면_하는_배드민턴_문화() {
+		string line;
+		ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Clubmember.txt");
+		getline(BadmintonInfoCorrection_1, line);
+		cout << line << endl;
+		BadmintonInfoCorrection_1.close();
+		Sleep(1000);
+	}
+	static void 강정훈이_만들고싶은_우리나라_배드민턴_시스템() {
+		string line;
+		ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_rkdwjdgns.txt");
+		getline(BadmintonInfoCorrection_1, line);
+		cout << line << endl;
+		BadmintonInfoCorrection_1.close();
+		Sleep(1000);
+	}
+	//파일 만드는것 정리
+	/*static void file() {
+		ifstream gamerule("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\SmintonS.txt");
+		string line;
+		if (gamerule.is_open()) {
+			while ((getline(gamerule, line))) {
+				cout << line << endl;
+			}
+			gamerule.close();
+		}
+		else {
+			cout << "파일 읽기 실패" << endl;
+		}
+	}*/
+
+
+};
+class ManagerMode {
+private:
+	int num = 0;
+	string line;
+
+public:
+	static string Manager_Name;
+	void Manager_Mode() {
+		ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+		getline(ManagerNamechange, line);
+		cout << line << "님 필요한 작업을 선택하세요." << endl;
+		ManagerNamechange.close();
+		cout << "1. 매니저 이름 바꾸기" << endl << "2. 배드민턴 정보 수정" << endl << "3. 배드민턴 지역 최신화" << endl << "4. 매니저 모드 종료하기" << endl;
+		cin >> num;
+		ManagerWork();
+
+
+	}
+	void ManagerWork() {
+		if (num == 1) {
+			ManagerName();
+			ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+			getline(ManagerNamechange, line);
+			cout << line << "님 필요한 작업을 선택하세요." << endl;
+			ManagerNamechange.close();
+			cout << "1. 매니저 이름 바꾸기" << endl << "2. 배드민턴 정보 수정" << endl << "3. 배드민턴 지역 최신화" << endl << "4. 매니저 모드 종료하기" << endl;
+			cin >> num;
+			ManagerWork();
+		}
+		else if (num == 2) {
+			BadmintonInfoCorrection();
+			ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+			getline(ManagerNamechange, line);
+			cout << line << "님 필요한 작업을 선택하세요." << endl;
+			ManagerNamechange.close();
+			cout << "1. 매니저 이름 바꾸기" << endl << "2. 배드민턴 정보 수정" << endl << "3. 배드민턴 지역 최신화" << endl << "4. 매니저 모드 종료하기" << endl;
+			cin >> num;
+			ManagerWork();
+		}
+		else if (num == 3) {
+			BamintonRigonCorrection();
+			ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+			getline(ManagerNamechange, line);
+			cout << line << "님 필요한 작업을 선택하세요." << endl;
+			ManagerNamechange.close();
+			cout << "1. 매니저 이름 바꾸기" << endl << "2. 배드민턴 정보 수정" << endl << "3. 배드민턴 지역 최신화" << endl << "4. 매니저 모드 종료하기" << endl;
+			cin >> num;
+			ManagerWork();
+		}
+		else if (num == 4) {
+			cout << "매니저 모드를 종료합니다." << endl;
+		}
+		else if (num == 0) {
+			ManagerWork();
+		}
+	}
+	void ManagerName() {
+		string line;
+		string 임시저장;
+		
+		cout << "변경하고 싶은 이름을 입력하세요 : " << endl;
+		cin >> 임시저장;
+		ofstream ManagerName("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+			ManagerName << 임시저장 << endl;
+			ManagerName.close();
+		ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+		getline(ManagerNamechange, line);
+		cout << line << "님 반갑습니다" << endl;
+		ManagerNamechange.close();
+		
+		
+		
+	}
+	void BadmintonInfoCorrection() {
+		string newline;
+		int num;
+		cout << "배드민턴 정보를 수정합니다" << endl;
+		cout << "수정할 정보를 선택하세요." << endl;
+		cout << "1. 배드민턴 게임룰" << endl;
+		cout << "2. 동호회 가입하는 방법" << endl;
+		cout << "3. 동호인으로서 알았으면 하는 배드민턴 문화" << endl;
+		cout << "4. 강정훈이 만들고 싶은 우리나라 배드민턴 시스템" << endl;
+		cin >> num;
+		if (num == 1) {
+			ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Rule.txt");
+			getline(BadmintonInfoCorrection_1, line);
+			cout << line << endl;
+			BadmintonInfoCorrection_1.close();
+			cin >> newline;
+			ofstream BadmintonInfoCorrection_2("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Rule.txt");
+			BadmintonInfoCorrection_2 << newline << endl;
+			BadmintonInfoCorrection_2.close();
+			cout << "저장되었습니다." << endl;
+		}
+		else if (num == 2) {
+			ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Club.txt");
+			getline(BadmintonInfoCorrection_1, line);
+			cout << line << endl;
+			BadmintonInfoCorrection_1.close();
+			cin >> newline;
+			ofstream BadmintonInfoCorrection_2("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Club.txt");
+			BadmintonInfoCorrection_2 << newline << endl;
+			BadmintonInfoCorrection_2.close();
+			cout << "저장되었습니다." << endl;
+		}
+		else if (num == 3) {
+			ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Clubmember.txt");
+			getline(BadmintonInfoCorrection_1, line);
+			cout << line << endl;
+			BadmintonInfoCorrection_1.close();
+			cin >> newline;
+			ofstream BadmintonInfoCorrection_2("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_Clubmember.txt");
+			BadmintonInfoCorrection_2 << newline << endl;
+			BadmintonInfoCorrection_2.close();
+			cout << "저장되었습니다." << endl;
+		}
+		else if (num == 4) {
+			ifstream BadmintonInfoCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_rkdwjdgns.txt");
+			getline(BadmintonInfoCorrection_1, line);
+			cout << line << endl;
+			BadmintonInfoCorrection_1.close();
+			cin >> newline;
+			ofstream BadmintonInfoCorrection_2("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonInfo_rkdwjdgns.txt");
+			BadmintonInfoCorrection_2 << newline << endl;
+			BadmintonInfoCorrection_2.close();
+			cout << "저장되었습니다." << endl;
+		}
+		
+	}
+	void BamintonRigonCorrection() {
+		string newline;
+		cout << "배드민턴 지역 정보를 수정합니다." << endl;
+		ifstream BadmintonRigonCorrection_1("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonRule.txt");
+		getline(BadmintonRigonCorrection_1, line);
+		cout << line << endl;
+		BadmintonRigonCorrection_1.close();
+		cin >> newline;
+		ofstream BadmintonRigonCorrection_2("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\BadmintonRigon.txt");
+		BadmintonRigonCorrection_2 << newline << endl;
+		BadmintonRigonCorrection_2.close();
+		cout << "저장되었습니다." << endl;
+	}
+};
+//string ManagerMode::Manager_Name = "강정훈";
+
+int main() {
+	Information Info;
+	ManagerMode Mana;
+	string line;
+	string work;
+	string place;
+	int num;
+	while (1) {
+		cout << "원하는 작업(검색, 배드민턴 정보, 그만두기)을 선택하세요 : " << endl;
+		cin >> work;
+
+		if (work == "검색") {
+			cout << "검색할 지역을 선택하세요(경산, 창원) :" << endl;
+			cin >> place;
+			if (place == "경산") {
+				Info.경산();
+			}
+			else if (place == "창원") {
+				Info.창원();
+			}
+		}
+		else if (work == "배드민턴정보") {
+			cout << "원하는 정보를 선택해주세요!" << endl;
+			cout << "1. 배드민턴 게임룰" << endl;
+			cout << "2. 동호회 가입하는 방법" << endl;
+			cout << "3. 동호인으로서 알았으면 하는 배드민턴 문화" << endl;
+			cout << "4. 강정훈이 만들고 싶은 우리나라 배드민턴 시스템" << endl;
+			cin >> num;
+			if (num == 1) {
+				Info.배드민턴_게임룰();
+			}
+			else if (num == 2) {
+				Info.동호회_가입하는_방법();
+			}
+			else if (num == 3) {
+				Info.동호인으로서_알았으면_하는_배드민턴_문화();
+			}
+			else if (num == 4) {
+				Info.강정훈이_만들고싶은_우리나라_배드민턴_시스템();
+			}
+		}
+		else if (work == "그만두기") {
+			cout << "종료합니다." << endl;
+			break;
+		}
+		else if (work == "2326479Yi0") {
+			ifstream ManagerNamechange("C:\\Users\\User\\OneDrive\\바탕 화면\\SmintonS_App\\ManagerName.txt");
+			getline(ManagerNamechange, line);
+			cout << line << "님 반갑습니다" << endl;
+			ManagerNamechange.close();
+			Mana.Manager_Mode();
+		}
+
+
+
+	}
+	return 0;
+}
