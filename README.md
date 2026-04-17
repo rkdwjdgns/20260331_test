@@ -1,5 +1,6 @@
 <h1>SmintonS APP</h1>
 <div>Operating this program will install files on your computer.</div>
+<br>
 <div>If it doesen't work follow below</div>
 <ul>
   <li>1. Make a file in your background folder name it SmintonS_App</li>
