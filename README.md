@@ -3,6 +3,6 @@
 <br>
 <div>If it doesen't work follow below</div>
 <ol>
-  <li>1. Make a file in your background folder name it SmintonS_App</li>
-  <li>2. Open the folder, copy the address, and paste it into the program’s address field</li>
+  <li>Make a file in your background folder name it SmintonS_App</li>
+  <li>Open the folder, copy the address, and paste it into the program’s address field</li>
 </ol>
